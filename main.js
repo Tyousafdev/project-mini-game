@@ -5,6 +5,8 @@ var choices = ["rock", "paper", "scissors"]
 var userPoints = 0
 var computerPoints = 0
 
+const main = document.querySelector(".main")
+
 const rock = document.getElementById("button1");
 const paper = document.getElementById("button2");
 const scissors = document.getElementById("button3");
@@ -13,6 +15,11 @@ const restart = document.querySelector("#button4")
 const computerText = document.querySelector("#computer")
 const playerText = document.querySelector("#player")
 const scoreText = document.querySelector(".score")
+
+let result = document.getElementById("result")
+const resultText = document.querySelector(".resultText")
+
+
 
 rock.addEventListener("click", () => {
     playGame("rock")
@@ -24,7 +31,14 @@ scissors.addEventListener("click", () => {
     playGame("scissors")
 });
 
+scoreText.innerHTML = (`Player points: ${userPoints} // computer points: ${computerPoints}`)
+
+
 restart.addEventListener("click", () => {
+    main.setAttribute('class', 'null')
+    main.style.backgroundColor = null;
+    main.style.pointerEvents = "visible";
+    result.style.visibility = "hidden"
     console.log("player picked YES")
     console.log("New game Has started")
     round = 0;
@@ -90,22 +104,30 @@ function playGame(player){
 function playRounds(){
     var optionYes = "yes"
     var optionNo = "no"
-    if(round >= 5){
+    if(userPoints == 5 || computerPoints == 5){
         
         
         if (userPoints > computerPoints){
             console.log("PLAYER WINS GAME!!!")
+            result.style.visibility = "visible"
+            resultText.innerHTML = "PLAYER WINS GAME!!!"
+            main.style.pointerEvents = "none";
+            main.setAttribute('class', 'blur')
         }
 
         else if (computerPoints > userPoints){
             console.log("COMPUTER WINS GAME!!!")
+            result.style.visibility = "visible"
+            resultText.innerHTML = "COMPUTER WINS GAME!!!"
+            main.style.pointerEvents = "none";
+            main.setAttribute('class', 'blur')
         }
         else{
             console.log("IT WAS A GAME TIE!!!")
         }
 
         //var userQuestion = prompt("Play again? Yes | No" ).toLowerCase()
-        if(userQuestion === optionYes){
+        /* if(userQuestion === optionYes){
             console.log("player picked YES")
             console.log("New game Has started")
             round = 0;
@@ -121,11 +143,13 @@ function playRounds(){
         }
         else{
             return console.error("option not selected");
-        }
+        }*/
     }
     
     else{
         console.log("next round")
+        result.style.visibility = "hidden"
+        main.style.backgroundColor = null;
         
     }
 
