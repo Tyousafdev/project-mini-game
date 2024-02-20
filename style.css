@@ -6,68 +6,134 @@
 *{
     margin: 0;
     padding: 0;
+    
+    
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+
+.blur{
+    filter: blur(2px); 
 }
 
 
 .buttons{
     display: flex;
-    gap: 10px;
     justify-content: space-around;
+    gap: 10px;
     
 }
 
+
+
 .button-container{
-    position: absolute;
     
-    top: 50%;
-    width: 45%; 
     
     padding: 10px;
-    transform: translate(50%,50%);
-
     background-color: aliceblue;
 }
 
-img{
-    width: 500px;
+
+#window{
     
-}
-.score{
-    margin: 5%;
-    font-family: "Press Start 2P", system-ui;
+    display: flex;
+    justify-content: center;
+    
 
 }
+#result{
+   
+    font-family: "Press Start 2P", system-ui;
+    position: fixed;
+    width: 25%;
+   
+    height: 25%;
+    padding: 20px;
+    
+    
+    background-color: #DDCB93;
+    visibility: hidden;
+    z-index: 999;
+}
+
+
+
+img{
+    width: 500px;
+}
+
+
+.score{
+    display: flex;
+    margin-top: 10%;
+    font-family: "Press Start 2P", system-ui;
+}
+
+
 #computer{
     text-align: center;
     margin-top: 5%;
     font-family: "Press Start 2P", system-ui;
-
 }
+
+
 #player{
     text-align: center;
     margin-top: 5%;
     font-family: "Press Start 2P", system-ui;
 }
 
+
+
 #button1{
-    padding: 2%;
+    padding: 10%;
     border: none;
     background-color: #DDCB93;
+    transition-duration: .1s;
+    transform: translate(0px,0px);
 }
 
+
+
 #button2{
-    padding: 2%;
+    padding: 10%;
     border: none;
     background-color: #DDCB93;
+    transition-duration: .1s;
+    transform: translate(0px,0px);
 }
+
+
 
 
 #button3{
-    padding: 2%;
+    padding: 10%;
     border: none;
     background-color: #DDCB93;
+    transition-duration: .1s;
+    transform: translate(0px,0px);
 }
+
+
 
 #button1:active{
     background-color: #C2492F;
+    transform: translate(-3px,3px);
+}
+#button2:active{
+    background-color: #C2492F;
+    transform: translate(-3px,3px);
+}
+#button3:active{
+    box-shadow:steelblue;
+    background-color: #C2492F;
+    transform: translate(-3px,3px);
 }
